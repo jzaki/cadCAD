@@ -63,8 +63,7 @@ Rather than creating individual Configuration objects with:
 Configurations are appended to the (imported) `configs` array via:
   `append_configs(initial_state, partial_state_update_blocks, sim_configs)`
 
-Note `sim_configs` now takes an array.
-And as per [docs](https://github.com/cadCAD-org/cadCAD/tree/master/documentation#simulation-properties) each element (dictionary) should be preprocessed with `config_sim()`
+And as per [docs](https://github.com/cadCAD-org/cadCAD/tree/master/documentation#simulation-properties) each element (dictionary) should be preprocessed with `config_sim()`, and the result of this (dictionary or array) is passed as sim_configs.
 
 ## Executor
 
@@ -88,7 +87,6 @@ raw_result, tensor, sessions = executor.execute() # The `execute()` method retur
 
 ### Executor results
 The results now contain an additional key, `simulation`, which is incremented for each `sim_configs` dictionary element passed to `append_configs()`.
-
 
 Note each config dictionary that has multiple runs (`N` > 1) will create multiple `Configuration` elements in the `configs` array, each with `N` = 1.
 
